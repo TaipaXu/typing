@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '/widgets/keyboardKey.dart' as widget;
 
-class MainTypingKeyboard extends StatelessWidget {
+class MainTypingKeypad extends StatelessWidget {
   static const double _commonKeyWidth = 110;
   static const double _lastLineControlKeyWidth = 150;
   final String? currentKey;
 
-  const MainTypingKeyboard({Key? key, this.currentKey}) : super(key: key);
+  const MainTypingKeypad({Key? key, this.currentKey}) : super(key: key);
 
   Widget _alphabetKey(String text) => widget.KeyboardKey(
         text: text,

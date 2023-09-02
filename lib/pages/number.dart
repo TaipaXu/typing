@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '/widgets/numericKeyboard.dart' as widget;
+import '/widgets/numericKeypad.dart' as widget;
 
 class Number extends StatefulWidget {
   const Number({Key? key}) : super(key: key);
@@ -48,7 +48,7 @@ class _NumberState extends State<Number> {
         autofocus: true,
         onKey: _handleKeyEvent,
         child: Center(
-          child: widget.NumericKeyboard(
+          child: widget.NumericKeypad(
             currentKey: _currentKey,
           ),
         ),

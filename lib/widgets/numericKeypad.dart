@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '/widgets/keyboardKey.dart' as widget;
 
-class NumericKeyboard extends StatelessWidget {
+class NumericKeypad extends StatelessWidget {
   final String? currentKey;
   static const double _commonKeyWidth = 110;
 
-  const NumericKeyboard({Key? key, this.currentKey}) : super(key: key);
+  const NumericKeypad({Key? key, this.currentKey}) : super(key: key);
 
   Widget _numberKey(int number, {double width = _commonKeyWidth}) =>
       widget.KeyboardKey(
