@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "linux",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-d",
+                "linux"
+            ]
+        },
+        {
+            "name": "macos",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-d",
+                "macos"
+            ]
+        },
+        {
+            "name": "chrome",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-d",
+                "chrome"
+            ]
+        }
+    ]
+}
