@@ -4,6 +4,7 @@ class KeyboardKey extends StatelessWidget {
   final String text;
   final String? subText;
   final double width;
+  final double height;
   final bool isPressed;
   static const Color _keyColor = Colors.white;
   static const Color _textColor = Colors.black;
@@ -13,6 +14,7 @@ class KeyboardKey extends StatelessWidget {
     required this.text,
     this.subText,
     this.width = 110.0,
+    this.height = 110.0,
     this.isPressed = false,
   });
 
@@ -20,7 +22,7 @@ class KeyboardKey extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: 110.0,
+      height: height,
       decoration: BoxDecoration(
         color: isPressed ? Colors.grey : _keyColor,
         borderRadius: BorderRadius.circular(8.0),
