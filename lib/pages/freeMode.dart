@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '/widgets/mainTypingKeypad.dart' as widget;
+import '/widgets/numericKeypad.dart' as widget;
 
 class FreeMode extends StatefulWidget {
   const FreeMode({Key? key}) : super(key: key);
@@ -47,10 +48,19 @@ class _FreeModeState extends State<FreeMode> {
         focusNode: _focusNode,
         autofocus: true,
         onKey: _handleKeyEvent,
-        child: Center(
-          child: widget.MainTypingKeypad(
-            currentKey: _currentKey,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            widget.MainTypingKeypad(
+              currentKey: _currentKey,
+            ),
+            const SizedBox(
+              width: 120,
+            ),
+            widget.NumericKeypad(
+              currentKey: _currentKey,
+            ),
+          ],
         ),
       ),
     );
