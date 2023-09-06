@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '/widgets/mainTypingKeypad.dart' as widget;
 import '/widgets/panel.dart' as widget;
+import '/data/alphabet.dart' as data;
 
 class Alphabet extends StatefulWidget {
   const Alphabet({Key? key}) : super(key: key);
@@ -56,6 +57,7 @@ class _AlphabetState extends State<Alphabet> {
             children: [
               widget.Panel(
                 key: _boardKey,
+                items: data.items,
               ),
               const SizedBox(height: 80.0),
               widget.MainTypingKeypad(
