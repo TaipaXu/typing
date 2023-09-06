@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '/widgets/mainTypingKeypad.dart' as widget;
+import '/widgets/panel.dart' as widget;
 
 class Alphabet extends StatefulWidget {
   const Alphabet({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class Alphabet extends StatefulWidget {
 class _AlphabetState extends State<Alphabet> {
   final _focusNode = FocusNode();
   String? _currentKey;
+  final GlobalKey<widget.PanelState> _boardKey = GlobalKey<widget.PanelState>();
 
   @override
   void initState() {
@@ -30,6 +32,7 @@ class _AlphabetState extends State<Alphabet> {
       setState(() {
         _currentKey = event.logicalKey.keyLabel;
       });
+      _boardKey.currentState!.check(event.logicalKey.keyLabel);
     } else if (event is RawKeyUpEvent) {
       if (event.logicalKey.keyLabel == _currentKey) {
         setState(() {
@@ -48,8 +51,17 @@ class _AlphabetState extends State<Alphabet> {
         autofocus: true,
         onKey: _handleKeyEvent,
         child: Center(
-          child: widget.MainTypingKeypad(
-            currentKey: _currentKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              widget.Panel(
+                key: _boardKey,
+              ),
+              const SizedBox(height: 80.0),
+              widget.MainTypingKeypad(
+                currentKey: _currentKey,
+              )
+            ],
           ),
         ),
       ),
