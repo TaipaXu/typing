@@ -58,7 +58,7 @@ class _PracticeState extends State<Practice> {
                       ),
                     ),
                     onTap: () {
-                      Navigator.pushNamed(context, 'article');
+                      Navigator.pushNamed(context, 'articleChoices');
                     },
                   ),
                 ),

@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import '/data/articles/theImpactOfArtificialIntelligenceOnSociety.dart' as data;
+import 'package:flutter/services.dart' show rootBundle;
+import '/models/article.dart' as model;
 
 class Article extends StatefulWidget {
-  const Article({Key? key}) : super(key: key);
+  final model.Article article;
+
+  const Article(
+    this.article, {
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<Article> createState() => _ArticleState();
@@ -11,6 +17,24 @@ class Article extends StatefulWidget {
 class _ArticleState extends State<Article> {
   static const double _fontSize = 25;
   final TextEditingController _controller = TextEditingController();
+  String _content = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    _getArticle();
+  }
+
+  Future<void> _getArticle() async {
+    try {
+      String content = await rootBundle
+          .loadString('assets/articles/${widget.article.file}.txt');
+      setState(() {
+        _content = content;
+      });
+    } catch (e) {}
+  }
 
   Widget get _article {
     return ListView(
@@ -19,9 +43,9 @@ class _ArticleState extends State<Article> {
           textAlign: TextAlign.justify,
           text: TextSpan(
             children: [
-              for (int i = 0; i < data.article.length; i++)
+              for (int i = 0; i < _content.length; i++)
                 TextSpan(
-                  text: data.article[i],
+                  text: _content[i],
                   style: TextStyle(
                     fontSize: _fontSize,
                     color: _isCorrect(i) ? Colors.green : Colors.black,
@@ -39,7 +63,7 @@ class _ArticleState extends State<Article> {
     if (_controller.text.isEmpty || index > _controller.text.length - 1) {
       return false;
     }
-    if (data.article[index] == _controller.text[index]) {
+    if (_content[index] == _controller.text[index]) {
       return true;
     }
     return false;

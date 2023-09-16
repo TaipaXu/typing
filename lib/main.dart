@@ -10,6 +10,7 @@ import '/pages/practice.dart' as page;
 import '/pages/word.dart' as page;
 import '/pages/sentence.dart' as page;
 import '/pages/article.dart' as page;
+import '/pages/articleChoices.dart' as page;
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         'practice': (context) => const page.Practice(),
         'word': (context) => const page.Word(),
         'sentence': (context) => const page.Sentence(),
-        'article': (context) => const page.Article(),
+        'articleChoices': (context) => const page.ArticleChoices(),
       },
       debugShowCheckedModeBanner: false,
     );
